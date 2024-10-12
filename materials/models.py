@@ -1,4 +1,5 @@
 from django.db import models
+from rest_framework.viewsets import ModelViewSet
 
 
 class Course(models.Model):
@@ -28,7 +29,7 @@ class Course(models.Model):
         return self.name
 
 
-class Class(models.Model):
+class Lesson(models.Model):
     name = models.CharField(
         max_length=100,
         verbose_name="Название урока",
