@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import OrderingFilter
 from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView
+from rest_framework.permissions import AllowAny
 from rest_framework.viewsets import ModelViewSet
 from tutorial.quickstart.serializers import UserSerializer
 
@@ -17,11 +18,25 @@ from users.serializers import PaymentSerializer, UserCreateSerializer
 class UserCreateApiView(CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserCreateSerializer
+    permission_classes = (AllowAny,)
 
+    def perform_create(self, serializer):
+        user = serializer.save(is_active=True)
+        user.set_password(user.password)
+        user.save()
+
+# class UserCreateApiView(CreateAPIView):
+#     queryset = User.objects.all()
+#     serializer_class = UserSerializer
+#
+#     def perform_create(self, serializer):
+#         user = serializer.save(is_active= True)
+#         user.set_password(user.password)
+#         user.save()
 
 class UserListApiView(ListAPIView):
     queryset = User.objects.all()
-    serializer_class = UserSerializer
+    serializer_class = UserCreateSerializer
 
 
 class UserRetrieveApiView(RetrieveAPIView):

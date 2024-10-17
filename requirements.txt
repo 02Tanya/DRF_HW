@@ -8,3 +8,4 @@ pillow==10.4.0
 pytils==0.4.1
 ipython==8.28.0
 django-filter==24.3
+djangorestframework-simplejwt==5.3.1
