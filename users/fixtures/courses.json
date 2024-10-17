@@ -1,0 +1,108 @@
+[
+{
+  "model": "materials.course",
+  "pk": 3,
+  "fields": {
+    "name": "Абракадабра",
+    "description": "Обновленный курс магии и практического волшебства",
+    "preview": "",
+    "author": null
+  }
+},
+{
+  "model": "materials.course",
+  "pk": 4,
+  "fields": {
+    "name": "История магии 2",
+    "description": "Урок о прошлом, которое привело к тому, как выглядит магия сейчас 2",
+    "preview": "",
+    "author": null
+  }
+},
+{
+  "model": "materials.course",
+  "pk": 5,
+  "fields": {
+    "name": "Лесные эльфы",
+    "description": "Курс магии и волшебства высшего уровня",
+    "preview": "",
+    "author": 17
+  }
+},
+{
+  "model": "materials.course",
+  "pk": 6,
+  "fields": {
+    "name": "Лесные эльфы 2",
+    "description": "Курс магии и волшебства высшего уровня",
+    "preview": "",
+    "author": 17
+  }
+},
+{
+  "model": "materials.course",
+  "pk": 8,
+  "fields": {
+    "name": "Лесные эльфы 3",
+    "description": "Курс магии и волшебства высшего уровня",
+    "preview": "",
+    "author": 17
+  }
+},
+{
+  "model": "materials.course",
+  "pk": 9,
+  "fields": {
+    "name": "Лесные эльфы 4",
+    "description": "Курс магии и волшебства высшего уровня",
+    "preview": "",
+    "author": 17
+  }
+},
+{
+  "model": "materials.course",
+  "pk": 11,
+  "fields": {
+    "name": "Лесные эльфы 5",
+    "description": "Курс магии и волшебства высшего уровня",
+    "preview": "",
+    "author": 17
+  }
+},
+{
+  "model": "materials.lesson",
+  "pk": 3,
+  "fields": {
+    "name": "История магии",
+    "description": "Урок о прошлом, которое привело к тому, как выглядит магия сейчас",
+    "image": "",
+    "course": 3,
+    "url": null,
+    "author": null
+  }
+},
+{
+  "model": "materials.lesson",
+  "pk": 4,
+  "fields": {
+    "name": "История магии 2",
+    "description": "Урок о прошлом, которое привело к тому, как выглядит магия сейчас 2",
+    "image": "",
+    "course": 3,
+    "url": null,
+    "author": null
+  }
+},
+{
+  "model": "materials.lesson",
+  "pk": 5,
+  "fields": {
+    "name": "История магии 4",
+    "description": "Урок о прошлом, которое привело к тому, как выглядит магия сейчас 4",
+    "image": "",
+    "course": 4,
+    "url": null,
+    "author": null
+  }
+}
+]
