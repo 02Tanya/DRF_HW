@@ -7,12 +7,10 @@ from materials.models import Course, Lesson
 class User(AbstractUser):
     username = None
     email = models.EmailField(
-        unique=True,
-        verbose_name="Email",
-        help_text="Введите Ваш email"
+        unique=True, verbose_name="Email", help_text="Введите Ваш email"
     )
     avatar = models.ImageField(
-        upload_to='users/avatars',
+        upload_to="users/avatars",
         blank=True,
         null=True,
         verbose_name="Фото",
@@ -22,15 +20,15 @@ class User(AbstractUser):
         max_length=35,
         blank=True,
         null=True,
-        verbose_name='Номер телефона',
-        help_text='Введите ваш номер',
+        verbose_name="Номер телефона",
+        help_text="Введите ваш номер",
     )
     user_city = models.CharField(
         max_length=100,
         blank=True,
         null=True,
-        verbose_name='Название города',
-        help_text='Введите название города',
+        verbose_name="Название города",
+        help_text="Введите название города",
     )
     # token = models.CharField(
     #     max_length=100,
@@ -39,16 +37,15 @@ class User(AbstractUser):
     #     verbose_name='Token'
     # )
 
-    USERNAME_FIELD = 'email'
+    USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
 
     class Meta:
-        verbose_name = 'Пользователь'
-        verbose_name_plural = 'Пользователи'
+        verbose_name = "Пользователь"
+        verbose_name_plural = "Пользователи"
 
     def __str__(self):
         return self.email
-
 
 
 class Payment(models.Model):
@@ -90,16 +87,15 @@ class Payment(models.Model):
         max_length=50,
         blank=True,
         null=True,
-        verbose_name='Способ оплаты',
-        help_text='Укажите способ оплаты',
+        verbose_name="Способ оплаты",
+        help_text="Укажите способ оплаты",
     )
     # cash = 'Наличные'
     # invoice = 'Перевод на счет'
 
-
     class Meta:
-        verbose_name = 'Платеж'
-        verbose_name_plural = 'Платежи'
+        verbose_name = "Платеж"
+        verbose_name_plural = "Платежи"
 
     def __str__(self):
         return self.payment_type

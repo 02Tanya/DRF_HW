@@ -8,14 +8,16 @@ class Command(BaseCommand):
         user_list = [
             {"email": "tr3520@bk.ru", "phone": "89434457658", "user_city": "Рейкъявик"},
             {"email": "mail5600@bk.ru", "phone": "89356734993", "user_city": "Сидней"},
-            {"email": "ana.stasova@yandex.ru", "phone": "89356755993", "user_city": "Чикаго"}
+            {
+                "email": "ana.stasova@yandex.ru",
+                "phone": "89356755993",
+                "user_city": "Чикаго",
+            },
         ]
 
         users_for_create = []
         for user_item in user_list:
-            users_for_create.append(
-                User(**user_item)
-                )
+            users_for_create.append(User(**user_item))
         User.objects.bulk_create(users_for_create)
         #
         # payment_list = [

@@ -13,10 +13,12 @@ class UserCreateSerializer(ModelSerializer):
         model = User
         fields = "__all__"
 
+
 class UserSerializer(ModelSerializer):
     class Meta:
         model = User
-        fields = ('email', 'password')
+        fields = ("email", "password")
+
 
 class PaymentSerializer(ModelSerializer):
     class Meta:

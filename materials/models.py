@@ -10,11 +10,10 @@ class Course(models.Model):
         help_text="Введите название курса",
     )
     description = models.TextField(
-        verbose_name="Описание курса",
-        help_text="Введите описание курса"
+        verbose_name="Описание курса", help_text="Введите описание курса"
     )
     preview = models.ImageField(
-        upload_to='materials/preview',
+        upload_to="materials/preview",
         blank=True,
         null=True,
         verbose_name="Превью",
@@ -25,8 +24,8 @@ class Course(models.Model):
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
-        verbose_name='Автор',
-        help_text='Укажите автора'
+        verbose_name="Автор",
+        help_text="Укажите автора",
     )
 
     class Meta:
@@ -45,8 +44,7 @@ class Lesson(models.Model):
         help_text="Введите название урока",
     )
     description = models.TextField(
-        verbose_name="Описание урока",
-        help_text="Введите описание урока"
+        verbose_name="Описание урока", help_text="Введите описание урока"
     )
     image = models.ImageField(
         upload_to="product/photo",
@@ -76,8 +74,8 @@ class Lesson(models.Model):
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
-        verbose_name='Автор',
-        help_text='Укажите автора'
+        verbose_name="Автор",
+        help_text="Укажите автора",
     )
 
     class Meta:
@@ -88,3 +86,26 @@ class Lesson(models.Model):
     def __str__(self):
         return self.name
 
+
+class Subscription(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="subscriptions",
+    )
+    course = models.ForeignKey(
+        Course,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="subscriptions"
+    )
+
+    def __str__(self):
+        return f"{self.pk}: user - {self.user} course - {self.course}"
+
+    class Meta:
+        verbose_name = "Подписка"
+        verbose_name_plural = "Подписки"
