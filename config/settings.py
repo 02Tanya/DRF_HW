@@ -137,8 +137,14 @@ SIMPLE_JWT = {
 }
 
 
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
+
+
 CELERY_BROKER_URL = os.getenv("CELERY_BROKER_URL")
 CELERY_RESULT_BACKEND = os.getenv("CELERY_RESULT_BACKEND")
+
+
+EMAIL_BACKEND = 'users.backends.email_backend.EmailBackend'
 
 EMAIL_HOST = os.getenv("EMAIL_HOST")
 EMAIL_PORT = os.getenv("EMAIL_PORT")
