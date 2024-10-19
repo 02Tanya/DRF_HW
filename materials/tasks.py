@@ -29,8 +29,7 @@ def blocks_the_user():
     users = User.objects.filter(is_active=True, is_superuser=False,  last_login__isnull=False)
 
     for user in users:
-        print("start!")
         if user.last_login:
-            if user.last_login.timestamp() < (now - datetime.timedelta(days=30)).timestamp():
+            if user.last_login.timestamp() < (now - datetime.timedelta(days=32)).timestamp():
                 user.is_active = False
                 user.save()
