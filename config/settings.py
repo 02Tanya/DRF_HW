@@ -167,6 +167,6 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 CELERY_BEAT_SCHEDULE = {
     'blocks_the_user': {
         'task': 'materials.tasks.blocks_the_user',
-        'schedule': timedelta(weeks=4),
+        'schedule': timedelta(days=30),
     }
 }

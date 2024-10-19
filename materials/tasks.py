@@ -26,23 +26,11 @@ def send_email_about_course_updates(course_pk):
 def blocks_the_user():
     '''Блокирует пользователя, который не проявлял активности.'''
     now = datetime.datetime.now()
-    users = User.objects.filter(is_active=True)
+    users = User.objects.filter(is_active=True, is_superuser=False,  last_login__isnull=False)
 
     for user in users:
+        print("start!")
         if user.last_login:
             if user.last_login.timestamp() < (now - datetime.timedelta(days=30)).timestamp():
-                user.is_active = False
-                user.save()
-
-def check_user_activity():
-    """Функция проверки активности пользователя"""
-    users = User.objects.filter(is_active=True, is_superuser=False,  last_login__isnull=False)
-    if users.exists():
-        for user in users:
-            print("start!")
-            # if user.last_login < (timezone.now() - timedelta(minutes=2)):
-            #     user.is_active = False
-            #     user.save()
-            if datetime.datetime.now(pytz.timezone("Europe/Moscow")) - user.last_login > datetime.timedelta(weeks=4):
                 user.is_active = False
                 user.save()
