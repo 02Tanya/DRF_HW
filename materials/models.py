@@ -27,6 +27,14 @@ class Course(models.Model):
         verbose_name="Автор",
         help_text="Укажите автора",
     )
+    # subscriptions=models.ManyToManyField(
+    #     settings.AUTH_USER_MODEL,
+    #     null=True,
+    #     blank=True,
+    #     verbose_name='Подписки',
+    #     help_text='Укажите подписки',
+    #     related_name="user_subscriptions"
+    # )
 
     class Meta:
         verbose_name = "Курс"
