@@ -16,7 +16,6 @@ from materials.serializers import (
     CourseSerializer,
     CourseDetailSerializer, SubscriptionSerializer,
 )
-# from materials.services import send_email_about_updating
 from materials.tasks import send_email_about_course_updates
 from users.permissions import IsModer, IsOwner, IsSubscriber
 

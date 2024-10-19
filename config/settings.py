@@ -147,6 +147,9 @@ CELERY_RESULT_BACKEND = os.getenv("CELERY_RESULT_BACKEND")
 # CELERY_TASK_SERIALIZER = 'pickle'
 # CELERY_RESULT_SERIALIZER = 'pickle'
 # CELERY_TIMEZONE = TIME_ZONE
+# CELERY_TASK_TRACK_STARTED = True
+# CELERY_TASK_TIME_LIMIT = 30 * 60
+
 
 EMAIL_BACKEND = 'users.backends.email_backend.EmailBackend'
 
@@ -160,15 +163,10 @@ EMAIL_USE_SSL = os.getenv("EMAIL_USE_SSL", False) == "True"
 SERVER_EMAIL =EMAIL_HOST_USER
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-# CELERY_TIMEZONE = TIME_ZONE
 
-# CELERY_TASK_TRACK_STARTED = True
-#
-# CELERY_TASK_TIME_LIMIT = 30 * 60
-
-# CELERY_BEAT_SCHEDULE = {
-#     'task-name': {
-#         'task': 'materials.tasks.blocks_the_user',
-#         'schedule': timedelta(days=1),
-#     },
-# }
+CELERY_BEAT_SCHEDULE = {
+    'blocks_the_user': {
+        'task': 'materials.tasks.blocks_the_user',
+        'schedule': timedelta(weeks=4),
+    }
+}
