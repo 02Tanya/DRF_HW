@@ -142,7 +142,11 @@ STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
 
 CELERY_BROKER_URL = os.getenv("CELERY_BROKER_URL")
 CELERY_RESULT_BACKEND = os.getenv("CELERY_RESULT_BACKEND")
-
+# CELERY_CACHE_BACKEND = os.getenv('CELERY_CACHE_BACKEND')
+# CELERY_ACCEPT_CONTENT = ['pickle', 'json']
+# CELERY_TASK_SERIALIZER = 'pickle'
+# CELERY_RESULT_SERIALIZER = 'pickle'
+# CELERY_TIMEZONE = TIME_ZONE
 
 EMAIL_BACKEND = 'users.backends.email_backend.EmailBackend'
 
@@ -153,13 +157,13 @@ EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS", False) == "True"
 EMAIL_USE_SSL = os.getenv("EMAIL_USE_SSL", False) == "True"
 
-# # Часовой пояс для работы Celery
-# CELERY_TIMEZONE = "Australia/Tasmania"
-#
-# # Флаг отслеживания выполнения задач
+SERVER_EMAIL =EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+# CELERY_TIMEZONE = TIME_ZONE
+
 # CELERY_TASK_TRACK_STARTED = True
 #
-# # Максимальное время на выполнение задачи
 # CELERY_TASK_TIME_LIMIT = 30 * 60
 
 # CELERY_BEAT_SCHEDULE = {
