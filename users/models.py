@@ -30,6 +30,12 @@ class User(AbstractUser):
         verbose_name="Название города",
         help_text="Введите название города",
     )
+    last_login = models.DateField(
+        auto_now=False,
+        blank=True,
+        null=True,
+        verbose_name='Дата последнего входа',
+    )
     # token = models.CharField(
     #     max_length=100,
     #     blank=True,
